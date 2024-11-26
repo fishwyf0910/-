@@ -1,3 +1,4 @@
+结构预测：
 1. 穿线法 I-TASSER
  	原理：不相似的氨基酸序列，也可以对应着相似的蛋白质序列。将目标序列，像“线”一样，穿到现有的结构里，看哪个结构最终结果最合适，哪个结构就作为模版。这个结构是否合适，用能量方程来评定，能量方程越低，就越合适。
   https://zhanggroup.org/I-TASSER/
@@ -14,3 +15,45 @@
 
 3. Alphafold （推荐）
   https://golgi.sandbox.google.com/
+
+
+可视化：
+PyMOL（https://pymol.org/）
+
+# 平移：按住鼠标中键不放后移动鼠标
+# 旋转：按住鼠标左键不放后移动鼠标
+# 缩放：按住鼠标右键不放后移动鼠标
+# 切割：滚动鼠标中键
+
+# A: Action，包含放大、剧中，复制，显示及比对等一系列的操作。
+# S: Show，设置不同的显示方式。
+# H: Hide，隐藏显示的方式，与 S 基本对应。
+# L: Lable，设置不同的标记方式。
+# C: Color，设置不同的着色方式。
+
+# 切换工作路径
+ File - Working Directory - Change... 或 cd C:\Users\DELL\Desktop\pymol\pdb
+# 加载 protein.pdb 
+ load protein.pdb 或 File - Open...
+
+# 突变氨基酸残基
+ 在菜单中点击 wizard - mutagenesis - protein，如下图所示打开氨基酸突变栏。
+ 选择所需突变的氨基酸。
+ 单击 No Mutation 后选择所需突变成的氨基酸。
+ 单击 Apply 将氨基酸替换为目的氨基酸。
+ 单击 Done 完成突变。
+
+#  制作scene动画
+ mset 1 x30 # 定义一个30帧的动画
+ frame 1 # 定义第一帧
+ # 调整分子到一个合适的观察角度
+ mview store # 存储该观察视角为第一帧
+ frame 30 # 定义第30帧
+ # 调整观察角度到另一个需要观察的角度
+ mview store # 存储该观察视角为第30帧
+ mview reinterpolate # 将场景整合为一个
+ mplay # 观看播放效果
+ mstop # 停止播放
+
+# 手动设置对齐区域
+
