@@ -56,4 +56,14 @@ PyMOL（https://pymol.org/）
  mstop # 停止播放
 
 # 手动设置对齐区域
+ # 加载的两个蛋白文件为fold_ik_model_0，fold_ik_after_model_0，设置5-20个氨基酸的区域需要对齐，赋值给ref1，ref2，name CA 表示选择了 Cα 原子
+ select ref1, fold_ik_model_0 and resi 5-20 and name CA
+ select ref2, fold_ik_after_model_0 and resi 5-20 and name CA
+# 对齐
+ align ref1, ref2
+
+# 旋转：例如，沿着 x 轴旋转 90 度
+ rotate x, 90, fold_ik_after_model_0
+# 平移：将 fold_ik_after_model_0 沿着 y 轴平移 10 个单位
+ translate [0, 10, 0], fold_ik_after_model_0
 
